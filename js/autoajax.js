@@ -30,11 +30,6 @@ function fetchdata(){
 
 $(document).ready(function(){
     fetchdata()    
- setInterval(fetchdata,1000);
-
-
-
-
-
+    setInterval(fetchdata,1000);
 });
 
