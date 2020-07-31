@@ -1,33 +1,34 @@
-// $(document).ready(function(){
-    function fetchdata(){
+function fetchdata(){
     $.ajax({
         url: 'server.php',
         type: 'get',
         dataType: 'JSON',
         success: function(response){
+            console.log(response);
+            
             var len = response.length;
+            var tbodyHtml = '';
             for(var i=0; i<len; i++){
                 var id = response[i].id;
                 var name = response[i].name;
                 var email = response[i].email;
                 var message = response[i].message;
                 var date = response[i].date;
-
-                var tr_str = "<tr>" +
-                    "<td align='center'>" + (i+1) + "</td>" +
-                    "<td align='center'>" + name + "</td>" +
-                    "<td align='center'>" + email + "</td>" +
-                    "<td align='center'>" + message + "</td>" +
-                    "<td align='center'>" + date + "</td>" +
-                    "</tr>";
-                $("#userTable tbody").html(tr_str);
-                   
+                
+                 tbodyHtml += '<tr>' +
+                    '<td>' + (i+1) + '</td>' +
+                    '<td>' + name + '</td>' +
+                    '<td>' + email + '</td>' +
+                    '<td>' + message + '</td>' +
+                    '<td>' + date + '</td>' +
+                    '</tr>'; 
             }
+            $("#userTable tbody").html(tbodyHtml);
         }
     });
 }
-// });
 
 $(document).ready(function(){
- setInterval(fetchdata,5000);
+ setInterval(fetchdata,2000);
 });
+
