@@ -29,6 +29,12 @@ function fetchdata(){
 }
 
 $(document).ready(function(){
- setInterval(fetchdata,2000);
+    fetchdata()    
+ setInterval(fetchdata,1000);
+
+
+
+
+
 });
 
