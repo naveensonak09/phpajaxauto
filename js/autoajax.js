@@ -1,4 +1,5 @@
-$(document).ready(function(){
+// $(document).ready(function(){
+    function fetchdata(){
     $.ajax({
         url: 'server.php',
         type: 'get',
@@ -19,21 +20,14 @@ $(document).ready(function(){
                     "<td align='center'>" + message + "</td>" +
                     "<td align='center'>" + date + "</td>" +
                     "</tr>";
-                $("#userTable tbody").append(tr_str);
-                
-                setInterval(function(){
-                    
-                    $("#userTable tbody").load(tr_str);
+                $("#userTable tbody").html(tr_str);
                    
-                    console.log(1);
-                },6000);
-               
             }
-
-           
-
         }
     });
-   
-});
+}
+// });
 
+$(document).ready(function(){
+ setInterval(fetchdata,5000);
+});
